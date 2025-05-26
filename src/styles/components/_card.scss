@@ -53,19 +53,28 @@
     margin-top: -4px;
 
     span {
-      font-size: 0.7rem;
+      font-size: 1.2rem;
+      color: rgb(255, 204, 0);
+      font-weight: 1000;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 4px;
     }
   }
-  ul {
-    margin: 6px 0;
+  #genres {
+    // margin: 6px 0;
+    margin-top: 6px;
     display: flex;
     flex-wrap: wrap;
+    padding: 0;
+    justify-content: flex-start;
   }
-  li {
+  #genres li {
     background: #212040;
     border-radius: 18px;
     padding: 0px 7px;
-    margin: 0 4px 4px 0;
+    // margin: 0 4px 4px 0;
     font-size: 1.1rem;
 
     &:first-child {

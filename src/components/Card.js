@@ -8,11 +8,25 @@ const Card = ({ movie, genres }) => {
         alt={"movie : " + movie.title}
       />
       <h2>{movie.title}</h2>
-      <h5>{movie.release_date}</h5>
+      <h5>
+        Sorti le :{" "}
+        {new Date(movie.release_date).toLocaleDateString("fr-FR", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        })}
+      </h5>
+        {/* Sorti le : {new Date(movie.release_date).toLocaleDateString("fr-FR", {
+          day: "2-digit",
+          month: "2-digit",
+           year: "numeric",
+        })} */}
+
       <h4>
-        {movie.vote_average} <span>★</span>
+        {Math.round(movie.vote_average * 10) / 10} / 10
+        <span> ★</span>
       </h4>
-      <ul>
+      <ul id="genres">
         {/* Affichage d'un <li> par genre */}
         {movie.genre_ids
           .map((id) => genres[id])
@@ -22,7 +36,7 @@ const Card = ({ movie, genres }) => {
           ))}
       </ul>
       <h3>Synopsis</h3>
-      <p>{movie.overview}</p> 
+      <p>{movie.overview}</p>
     </li>
   );
 };
