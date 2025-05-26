@@ -1,10 +1,15 @@
 import React from "react";
+import defaultPoster from "../assets/img/poster.jpg"; //  importer l’image en haut du fichier React
 
 const Card = ({ movie, genres }) => {
   return (
     <li className="card">
       <img
-        src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path}
+        src={
+          movie.poster_path
+            ? "https://image.tmdb.org/t/p/w500/" + movie.poster_path
+            : defaultPoster
+        }
         alt={"movie : " + movie.title}
       />
       <h2>{movie.title}</h2>
@@ -16,7 +21,7 @@ const Card = ({ movie, genres }) => {
           year: "numeric",
         })}
       </h5>
-        {/* Sorti le : {new Date(movie.release_date).toLocaleDateString("fr-FR", {
+      {/* Sorti le : {new Date(movie.release_date).toLocaleDateString("fr-FR", {
           day: "2-digit",
           month: "2-digit",
            year: "numeric",
@@ -27,16 +32,14 @@ const Card = ({ movie, genres }) => {
         <span> ★</span>
       </h4>
       <ul id="genres">
-        {/* Affichage d'un <li> par genre */}
         {movie.genre_ids
-          .map((id) => genres[id])
-          .filter(Boolean)
-          .map((genreName, index) => (
-            <li key={index}>{genreName}</li>
+          .filter((id) => genres[id]) // on garde seulement les id valides
+          .map((id) => (
+            <li key={id}>{genres[id]}</li>
           ))}
       </ul>
       <h3>Synopsis</h3>
-      <p>{movie.overview}</p>
+      <p>{movie.overview ? movie.overview : "Aucun synopsis disponible"}</p>
     </li>
   );
 };

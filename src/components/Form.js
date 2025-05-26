@@ -21,8 +21,8 @@ const Form = ({ handleSearch }) => {
           />
           <input type="submit" value="Rechercher" />
           <div className="btn-sort-container">
-            <span id="goodToBad">Top</span>
-            <span id="badToGood">Flop</span>
+            <span id="goodToBad">Top ↑</span>
+            <span id="badToGood"> ↓ Flop</span>
           </div>
         </form>
       </div>
