@@ -1,14 +1,14 @@
-// import "./styles/index.scss";
+import "./styles/index.scss";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
-import UserList from "./pages/userList";
+import Favorites from "./pages/favorites";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/userList" element={<UserList />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   );

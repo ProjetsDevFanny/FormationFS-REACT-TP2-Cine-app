@@ -64,17 +64,17 @@
       }
     }
     #goodToBad span {
-      transform: translateY(-50%) rotate(-90deg);
+      @include arrowIcons;
       right: 18px;
     }
     #badToGood span {
-      transform: translateY(-50%) rotate(90deg);
+      @include arrowIcons;
       left: 16px;
     }
     #goodToBad span,
     #badToGood span {
       position: absolute;
-      top: 50%;
+      top: 65%;
     }
   }
 }

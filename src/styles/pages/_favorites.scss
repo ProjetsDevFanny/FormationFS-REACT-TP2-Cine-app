@@ -1,0 +1,59 @@
+@use "../settings" as *;
+
+.favorites-page {
+  > h2 {
+    text-align: center;
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+
+    span {
+      img {
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+        transform: translateY(13px);
+      }
+    }
+  }
+}
+
+.favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+
+  .card {
+    background-color: rgba(162, 188, 239, 0.95);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+    &::after{
+      content: "";
+      position: absolute;
+      height: 90px;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(211, 188, 188, 0) 0%, #475284 55%);
+    }
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+
+    .btn {
+      background-color: #f95e5e;
+      color: white;
+      
+      &:hover {
+        background-color: #ff3333;
+      }
+    }
+
+    #genres {
+      margin-top: 6px;
+      display: flex;
+      gap: 10px;
+    }
+  }
+}

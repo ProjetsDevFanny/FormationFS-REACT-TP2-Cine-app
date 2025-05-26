@@ -3,7 +3,7 @@ import Movies from "../components/Movies";
 import Navigation from "../components/Navigation";
 import TittleHome from "../components/TittleHome";
 
-const home = () => {
+const Home = () => {
   return (
     <div>
       <Navigation />
@@ -13,4 +13,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;
