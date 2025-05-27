@@ -6,14 +6,16 @@
   top: 16px;
   left: 16px;
   font-size: 1.3rem;
-
-    ul {
-      display: flex;
-
+  width: 15%;
+  
+  ul {
+    display: flex;
+     
       a {
         text-decoration: none;
+        padding: 0px 10px;
         color: $white;
-        border-radius: 10px;
+        border-radius: 15px;
         width: 102px;
         text-align: center;
         margin-right: 5px;

@@ -17,6 +17,7 @@ const Form = ({ handleSearch, handleSort }) => {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
+            id="search-input"
             placeholder="Entrez le titre d'un film"
             value={inputSearch}
             onChange={(e) => setInputSearch(e.target.value)}

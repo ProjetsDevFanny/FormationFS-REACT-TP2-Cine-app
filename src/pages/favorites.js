@@ -5,7 +5,7 @@ import Card from "../components/Card";
 import axios from "axios";
 import heartStar from "../assets/img/coeur.png"; //
 
-const Favorites = () => {
+const Favorites = (handleAddToFavorites) => {
   const [favorites, setFavorites] = useState([]);
   const [genres, setGenres] = useState({});
 
@@ -52,16 +52,21 @@ const Favorites = () => {
         </span>
       </h2>
       <div className="favorites-list">
-        {favorites.map((movie) => (
-          <Card
-            key={movie.id}
-            movie={movie}
-            genres={genres}
-            handleRemoveFromFavorites={handleRemoveFromFavorites}
-            isFavorite={true}
-            isFavoritesPage={true}
-          />
-        ))}
+        {favorites.length === 0 ? (
+          <p id="no-favorites">Aucun coup de coeur trouvé...</p>
+        ) : (
+          favorites.map((movie) => (
+            <Card
+              key={movie.id}
+              movie={movie}
+              genres={genres}
+              handleAddToFavorites={handleAddToFavorites}
+              handleRemoveFromFavorites={handleRemoveFromFavorites}
+              isFavorite={true}
+              isFavoritesPage={true}
+            />
+          ))
+        )}
       </div>
     </div>
   );

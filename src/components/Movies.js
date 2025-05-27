@@ -7,7 +7,7 @@ const Movies = () => {
   const [data, setData] = useState([]); // On stocke les films dans un tableau
   const [genres, setGenres] = useState({}); // On stocke les genres dans un objet
   const [searchQuery, setSearchQuery] = useState("");
-  const [sort, setSort] = useState("top");
+  const [sort, setSort] = useState("");
   const [favorites, setFavorites] = useState([]);
 
   // Charger les favoris depuis le localStorage au démarrage
@@ -25,13 +25,14 @@ const Movies = () => {
         )
         .then((res) => setData(res.data.results))
         .catch((err) => console.error(err));
-    } else {
-      // Charger les films populaires par défaut
-      axios
+      } else {
+        // Charger les films populaires par défaut
+        axios
         .get(
           "https://api.themoviedb.org/3/movie/popular?api_key=ed82f4c18f2964e75117c2dc65e2161d&language=fr-FR"
         )
         .then((res) => setData(res.data.results))
+        // .then((res) => console.log(res.data.results))
         .catch((err) => console.error(err));
     }
   }, [searchQuery]);
@@ -66,14 +67,14 @@ const Movies = () => {
     }
   };
 
-  // Fonction pour ajouter un film aux coups de coeur
+  // Fonction pour ajouter un film aux coups de coeur (page + localStorage)
   const handleAddToFavorites = (movie) => {
     const newFavorites = [...favorites, movie];
     setFavorites(newFavorites);
     localStorage.setItem("favorites", JSON.stringify(newFavorites));
   };
 
-  // Fonction pour supprimer un film des coups de coeur
+  // Fonction pour supprimer un film des coups de coeur (page + localStorage)
   const handleRemoveFromFavorites = (movieId) => {
     const newFavorites = favorites.filter((movie) => movie.id !== movieId);
     setFavorites(newFavorites);

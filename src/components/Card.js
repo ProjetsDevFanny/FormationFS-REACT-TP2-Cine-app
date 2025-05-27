@@ -10,6 +10,16 @@ const Card = ({
   isFavorite,
   isFavoritesPage,
 }) => {
+
+  // // Fonction de formatage de la date en français
+  // const dateFormaterFR = (dateStr) => 
+  //   new Date(dateStr)
+  //   .toLocaleDateString("fr-FR", {
+  //     day: "2-digit",
+  //     month: "2-digit",
+  //     year: "numeric",
+  //   })
+
   return (
     <li className="card">
       <img
@@ -21,22 +31,22 @@ const Card = ({
         alt={"movie : " + movie.title}
       />
       <h2>{movie.title}</h2>
-      <h5>
-        Sorti le :{" "}
-        {new Date(movie.release_date).toLocaleDateString("fr-FR", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-        })}
-      </h5>
-      {/* Sorti le : {new Date(movie.release_date).toLocaleDateString("fr-FR", {
-          day: "2-digit",
-          month: "2-digit",
-           year: "numeric",
-        })} */}
+      {movie.release_date ? (
+        <h5>
+          Sorti le :{" "}
+          {new Date(movie.release_date).toLocaleDateString("fr-FR", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          })}
+        </h5>
+      ) : (
+        <h5>Date de sortie non disponible</h5>
+      )}
 
       <h4>
-        {Math.round(movie.vote_average * 10) / 10} / 10
+        {/* {Math.round(movie.vote_average * 10) / 10} / 10 // Méthode si je veux retourner un nombre */}
+        {movie.vote_average.toFixed(1)} / 10  {/* Méthode si je veux retourner un string */}
         <span> ★</span>
       </h4>
       <ul id="genres">
