@@ -46,7 +46,15 @@ git clone git@github.com:ProjetsDevFanny/FormationFS-REACT-TP2-Cine-app.git
 
 ```bash
 npm install
+npm install sass react-router-dom axios react-icons
 ```
+
+Les dépendances principales incluent :
+
+- react-router-dom (pour la navigation)
+- axios (pour les requêtes HTTP)
+- sass (pour le préprocesseur CSS)
+- react-icons (pour les icônes)
 
 3. Lancer l'application
 
